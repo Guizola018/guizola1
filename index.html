@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfinityCloud</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Botões de login e cadastro -->
+    <header>
+        <!-- Contêiner para o conteúdo do cabeçalho -->
+        <div class="header-content">
+            <div class="menu-container">
+                <nav class="menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="pages/produtos.html">Produtos</a></li>
+                        <li><a href="pages/solucao.html">Solução</a></li>
+                        <li><a href="pages/planos.html">Planos</a></li>
+                    </ul>
+                </nav>
+                <div class="menu-actions">
+                    <button class="btn-login" id="btnLogin">Fazer login</button>
+                    <button class="btn-signup" id="btnSignup">Fazer cadastro</button>
+                </div>
+            </div>
+            <div>
+                <h1>Bem vindo ao InfinityCloud</h1>
+                <p>Redefinindo o Armazenamento em Nuvem para Todos</p>
+            </div>
+        </div>
+        <!-- Contêiner para o SVG das ondas -->
+        <div class="header-waves">
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+                <defs>
+                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                </g>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Janela Modal de Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeLogin">&times;</span>
+            <h2>Login</h2>
+            <form>
+                <label for="loginEmail">Email:</label>
+                <input type="email" id="loginEmail" name="loginEmail" required>
+                <label for="loginPassword">Senha:</label>
+                <input type="password" id="loginPassword" name="loginPassword" required>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Janela Modal de Cadastro -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeSignup">&times;</span>
+            <h2>Cadastro</h2>
+            <form>
+                <label for="signupFullName">Nome Completo:</label>
+                <input type="text" id="signupFullName" name="signupFullName" required>
+                
+                <label for="signupAge">Idade:</label>
+                <input type="number" id="signupAge" name="signupAge" required>
+                
+                <label for="signupCountry">País:</label>
+                <select id="signupCountry" name="signupCountry" required>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Estados Unidos">Estados Unidos</option>
+                    <option value="Canadá">Canadá</option>
+                    <option value="Reino Unido">Reino Unido</option>
+                    <option value="Austrália">Austrália</option>
+                    <!-- Adicione mais opções conforme necessário -->
+                </select>
+                
+                <label for="signupPhone">Número de Telefone:</label>
+                <div style="display: flex;">
+                    <select id="signupPhoneDDD" name="signupPhoneDDD" required>
+                        <option value="11">11</option>
+                        <option value="18">18</option>
+                        <option value="21">21</option>
+                        <option value="31">31</option>
+                        <option value="41">41</option>
+                        <option value="51">51</option>
+                        <!-- Adicione mais opções de DDD conforme necessário -->
+                    </select>
+                    <input type="tel" id="signupPhone" name="signupPhone" required style="flex: 1; margin-left: 10px;">
+                </div>
+                
+                <label for="signupEmail">Email:</label>
+                <input type="email" id="signupEmail" name="signupEmail" required>
+                
+                <label for="signupPassword">Senha:</label>
+                <input type="password" id="signupPassword" name="signupPassword" required>
+                
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <main class="container">
+        <section id="sobre" class="coluna">
+            <i class="fas fa-cloud icon"></i>
+            <h2>Sobre Nós</h2>
+            <p>Nós somos uma empresa de armazenamento em nuvem</p>
+        </section>
+
+        <section id="serviços" class="coluna">
+            <i class="fas fa-cogs icon"></i>
+            <h2>Serviços</h2>
+            <p>Nós oferecemos plano de armazenamento com a sua necessidade</p>
+        </section>
+
+        <section id="contato" class="coluna">
+            <i class="fas fa-phone icon"></i>
+            <h2>Contato</h2>
+            <p>Telefone (18) 9966-52676</p>
+            <p>E-mail: contato@infinitycloud.com</p>
+        </section>
+    </main>
+
+    <section id="planos">
+        <h2>Escolha o seu Plano</h2>
+        <div class="planos-container">
+            <div class="cartao-plano">
+                <h3>Plano Gratuito</h3>
+                <p>Ideal para quem está começando: Experimente nossos serviços básicos sem custo e descubra como podemos te ajudar.</p>
+                <div class="preco">Grátis</div>
+                <button>Assine Agora</button>
+            </div>
+            <div class="cartao-plano">
+                <h3>Plano Basico</h3>
+                <p>Seu Primeiro Passo para o Sucesso: Recursos essenciais para quem busca resultados rápidos e eficientes.</p>
+                <div class="preco">R$9,99/mes</div>
+                <button>Assine Agora</button>
+            </div>
+            <div class="cartao-plano">
+                <h3>Plano Avançado</h3>
+                <p>Para Empresas que Buscam Mais: Vá além do básico e tenha acesso a recursos avançados para escalar seu negócio.</p>
+                <div class="preco">R$19,99/mes</div>
+                <button>Assine Agora</button>
+            </div>
+            <div class="cartao-plano">
+                <h3>Plano Premium</h3>
+                <p>A Solução Completa para o Sucesso: Tenha acesso a todos os recursos e funcionalidades da plataforma, sem limitações.</p>
+                <button>Assine Agora</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="avaliacoes">
+        <h2>O que nossos clientes dizem do serviços</h2>
+        <div class="depoimentos-container">
+            <article class="avaliacao">
+                <p>"O serviço InfinityCloud tranformou a forma como gerencio os meu arquivos na minha empresa. A sincronização é perfeita e a segurança me da traquilidade"</p>
+                <p class="avaliacao-autor">- João Silva, <span class="avaliacao-marca">Empreendedor</span></p>
+            </article>
+            <article class="avaliacao">
+                <p>"A capacidade de streaming direto economiza muito o meu tempo. Recomendo demais o InfinityCloud para qualquer pessoa!"</p>
+                <p class="avaliacao-autor">- Maria Oliveira, <span class="avaliacao-marca">Designer Grafico</span></p>
+            </article>
+        </div>
+    </section>
+
+    <footer>
+        <p>Desenvolvido por Guilherme Borges</p>
+    </footer>
+
+    <!-- Botão de chat para suporte -->
+    <div class="chat-button" id="chatButton">
+        <img src="css/img/5167053.png" alt="Chat">
+    </div>
+
+    <!-- Janela de Chat -->
+    <div id="chatWindow" class="chat-window">
+        <div class="chat-header">
+            <span>Chat de Suporte</span>
+            <button id="closeChat" class="close-chat">&times;</button>
+        </div>
+        <div class="chat-body">
+            <p>Olá! Como posso ajudar você hoje?</p>
+            <!-- Aqui você pode adicionar mais conteúdo do chat -->
+        </div>
+        <div class="chat-footer">
+            <input type="text" placeholder="Digite sua mensagem...">
+            <button>Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript para abrir e fechar as janelas modais
+        const loginModal = document.getElementById('loginModal');
+        const signupModal = document.getElementById('signupModal');
+        const btnLogin = document.getElementById('btnLogin');
+        const btnSignup = document.getElementById('btnSignup');
+        const closeLogin = document.getElementById('closeLogin');
+        const closeSignup = document.getElementById('closeSignup');
+
+        function openModal(modal) {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Desabilita a rolagem da página
+        }
+
+        function closeModal(modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Habilita a rolagem da página
+        }
+
+        btnLogin.onclick = function() {
+            openModal(loginModal);
+        }
+
+        btnSignup.onclick = function() {
+            openModal(signupModal);
+        }
+
+        closeLogin.onclick = function() {
+            closeModal(loginModal);
+        }
+
+        closeSignup.onclick = function() {
+            closeModal(signupModal);
+        }
+
+        window.onclick = function(event) {
+            if (event.target == loginModal) {
+                closeModal(loginModal);
+            }
+            if (event.target == signupModal) {
+                closeModal(signupModal);
+            }
+        }
+
+        // JavaScript para abrir a janela de chat
+        const chatButton = document.getElementById('chatButton');
+        const chatWindow = document.getElementById('chatWindow');
+        const closeChat = document.getElementById('closeChat');
+
+        chatButton.onclick = function() {
+            chatWindow.style.display = 'block';
+        }
+
+        closeChat.onclick = function() {
+            chatWindow.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

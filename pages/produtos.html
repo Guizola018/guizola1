@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - InfinityCloud</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <header>
+        <!-- Contêiner para o conteúdo do cabeçalho -->
+        <div class="header-content">
+            <div class="menu-container">
+                <nav class="menu">
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="produtos.html">Produtos</a></li>
+                        <li><a href="solucao.html">Solução</a></li>
+                        <li><a href="planos.html">Planos</a></li>
+                    </ul>
+                </nav>
+                <div class="menu-actions">
+                    <button class="btn-login" id="btnLogin">Fazer login</button>
+                    <button class="btn-signup" id="btnSignup">Fazer cadastro</button>
+                </div>
+            </div>
+            <div>
+                <h1>InfinityCloud</h1>
+                <p>Redefinindo o Armazenamento em Nuvem para Todos</p>
+            </div>
+        </div>
+        <!-- Contêiner para o SVG das ondas -->
+        <div class="header-waves">
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+                <defs>
+                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7)" />
+                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                    <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+                </g>
+            </svg>
+        </div>
+    </header>
+
+    <main>
+        <h2>Nossos Produtos</h2>
+        <div class="produtos-container">
+            <div class="cartao-produto">
+                <h3>Armazenamento Seguro</h3>
+                <p>Oferecemos soluções de armazenamento em nuvem com alta segurança e confiabilidade.</p>
+                <button>Saiba Mais</button>
+            </div>
+            <div class="cartao-produto">
+                <h3>Backup Automático</h3>
+                <p>Nosso sistema de backup automático garante que seus dados estejam sempre protegidos.</p>
+                <button>Saiba Mais</button>
+            </div>
+            <div class="cartao-produto">
+                <h3>Sincronização em Tempo Real</h3>
+                <p>Sincronize seus arquivos em tempo real entre todos os seus dispositivos.</p>
+                <button>Saiba Mais</button>
+            </div>
+            <div class="cartao-produto">
+                <h3>Colaboração</h3>
+                <p>Nossa solução de compartilhamento de arquivos permite que você colabore facilmente com sua equipe.</p>
+                <button>Saiba Mais</button>
+            </div>
+        </div>
+    </main>
+<!-- Botão de chat para suporte -->
+<div class="chat-button" id="chatButton">
+    <img src="../css/img/5167053.png" alt="Chat">
+</div>
+
+<!-- Janela de Chat -->
+<div id="chatWindow" class="chat-window">
+    <div class="chat-header">
+        <span>Chat de Suporte</span>
+        <button id="closeChat" class="close-chat">&times;</button>
+    </div>
+    <div class="chat-body">
+        <p>Olá! Como posso ajudar você hoje?</p>
+        <!-- Aqui você pode adicionar mais conteúdo do chat -->
+    </div>
+    <div class="chat-footer">
+        <input type="text" placeholder="Digite sua mensagem...">
+        <button>Enviar</button>
+    </div>
+</div>
+
+<!-- Janela Modal de Login -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeLogin">&times;</span>
+        <h2>Login</h2>
+        <form>
+            <label for="loginEmail">Email:</label>
+            <input type="email" id="loginEmail" name="loginEmail" required>
+            <label for="loginPassword">Senha:</label>
+            <input type="password" id="loginPassword" name="loginPassword" required>
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+</div>
+
+<!-- Janela Modal de Cadastro -->
+<div id="signupModal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="closeSignup">&times;</span>
+        <h2>Cadastro</h2>
+        <form>
+            <label for="signupFullName">Nome Completo:</label>
+            <input type="text" id="signupFullName" name="signupFullName" required>
+            
+            <label for="signupAge">Idade:</label>
+            <input type="number" id="signupAge" name="signupAge" required>
+            
+            <label for="signupCountry">País:</label>
+            <select id="signupCountry" name="signupCountry" required>
+                <option value="Brasil">Brasil</option>
+                <option value="Estados Unidos">Estados Unidos</option>
+                <option value="Canadá">Canadá</option>
+                <option value="Reino Unido">Reino Unido</option>
+                <option value="Austrália">Austrália</option>
+            </select>
+            
+            <label for="signupPhone">Número de Telefone:</label>
+            <div style="display: flex;">
+                <select id="signupPhoneDDD" name="signupPhoneDDD" required>
+                    <option value="11">11</option>
+                    <option value="21">21</option>
+                    <option value="31">31</option>
+                    <option value="41">41</option>
+                    <option value="51">51</option>
+                </select>
+                <input type="tel" id="signupPhone" name="signupPhone" required style="flex: 1; margin-left: 10px;">
+            </div>
+            
+            <label for="signupEmail">Email:</label>
+            <input type="email" id="signupEmail" name="signupEmail" required>
+            
+            <label for="signupPassword">Senha:</label>
+            <input type="password" id="signupPassword" name="signupPassword" required>
+            
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // JavaScript para abrir e fechar as janelas modais
+    const loginModal = document.getElementById('loginModal');
+    const signupModal = document.getElementById('signupModal');
+    const btnLogin = document.getElementById('btnLogin');
+    const btnSignup = document.getElementById('btnSignup');
+    const closeLogin = document.getElementById('closeLogin');
+    const closeSignup = document.getElementById('closeSignup');
+
+    function openModal(modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Desabilita a rolagem da página
+    }
+
+    function closeModal(modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Habilita a rolagem da página
+    }
+
+    btnLogin.onclick = function() {
+        openModal(loginModal);
+    }
+
+    btnSignup.onclick = function() {
+        openModal(signupModal);
+    }
+
+    closeLogin.onclick = function() {
+        closeModal(loginModal);
+    }
+
+    closeSignup.onclick = function() {
+        closeModal(signupModal);
+    }
+
+    window.onclick = function(event) {
+        if (event.target == loginModal) {
+            closeModal(loginModal);
+        }
+        if (event.target == signupModal) {
+            closeModal(signupModal);
+        }
+    }
+
+    // JavaScript para abrir a janela de chat
+    const chatButton = document.getElementById('chatButton');
+    const chatWindow = document.getElementById('chatWindow');
+    const closeChat = document.getElementById('closeChat');
+
+    chatButton.onclick = function() {
+        chatWindow.style.display = 'block';
+    }
+
+    closeChat.onclick = function() {
+        chatWindow.style.display = 'none';
+    }
+</script>
+
+    <footer>
+        <p>Desenvolvido por Guilherme Borges</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,561 @@
+/* Definições gerais */
+body {
+    font-family: Arial, sans-serif; /* Define a fonte do corpo da página */
+    margin: 0; /* Remove a margem padrão do navegador */
+    padding: 0; /* Remove o preenchimento padrão do navegador */
+    background-color: #f8f9fa; /* Define a cor de fundo da página */
+    display: flex; /* Torna o body um contêiner flexível */
+    flex-direction: column; /* Organiza os filhos do body em coluna */
+    min-height: 100vh; /* Garante que o body ocupe pelo menos 100% da altura da janela */
+}
+
+/* Estilização do cabeçalho */
+header {
+    background: linear-gradient(to right, #007bff, #00c6ff); /* Gradiente azul no fundo */
+    color: black; /* Cor do texto em branco */
+    position: relative; /* Necessário para posicionar o SVG */
+    width: 100%; /* Garante que o cabeçalho ocupe toda a largura */
+    z-index: 1000; /* Garante que o cabeçalho fique sobre outros elementos */
+    box-shadow: none; /* Adiciona sombra ao cabeçalho */
+    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse os limites do cabeçalho */
+    margin-bottom: 0; /* Remove a linha entre o cabeçalho e o conteúdo principal */
+    border-bottom: none; /* Remove qualquer borda inferior */
+}
+
+/* Estilização das janelas modais */
+.modal {
+    display: none; /* Esconde a modal por padrão */
+    position: fixed; /* Fixa a modal na tela */
+    z-index: 1001; /* Garante que a modal fique acima de outros elementos */
+    left: 0; /* Alinha o elemento à esquerda */
+    top: 0; /* Alinha o elemento ao topo */
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    overflow: auto; /* Habilita rolagem se necessário */
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo escuro com transparência */
+}
+
+.modal-content {
+    background-color: #fefefe; /* Fundo branco */
+    margin: 15% auto; /* Centraliza a modal */
+    padding: 20px; /* Adiciona preenchimento interno */
+    border: 1px solid #888; /* Borda cinza escura */
+    width: 80%; /* Largura da modal */
+    max-width: 400px; /* Largura máxima da modal */
+    border-radius: 10px; /* Bordas arredondadas */
+    z-index: 1002; /* Garante que o conteúdo da modal fique acima do fundo escuro */
+}
+
+.close {
+    color: #aaa; /* Cor do ícone de fechar */
+    float: right; /* Alinha o ícone à direita */
+    font-size: 28px; /* Tamanho da fonte do ícone */
+    font-weight: bold; /* Negrito */
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* Cor do ícone ao passar o mouse ou focar */
+    text-decoration: none; /* Remove sublinhado */
+    cursor: pointer; /* Mostra o cursor de link ao passar o mouse */
+}
+
+.modal-content h2 {
+    margin-top: 0; /* Remove a margem superior */
+}
+
+.modal-content form {
+    display: flex; /* Exibe os itens em coluna */
+    flex-direction: column; /* Organiza os itens em coluna */
+}
+
+.modal-content label {
+    margin-top: 10px; /* Margem superior */
+}
+
+.modal-content input,
+.modal-content select {
+    padding: 10px; /* Preenchimento interno */
+    margin-top: 5px; /* Margem superior */
+    border: 1px solid #ccc; /* Borda cinza clara */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+.modal-content button {
+    margin-top: 20px; /* Margem superior */
+    padding: 10px; /* Preenchimento interno */
+    background-color: #007bff; /* Fundo azul */
+    color: white; /* Texto branco */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Mostra o cursor de link ao passar o mouse */
+}
+
+.modal-content button:hover {
+    background-color: #0056b3; /* Fundo azul escuro ao passar o mouse */
+}
+
+#abrirModal {
+    padding: 10px 20px; /* Preenchimento interno */
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+/* Contêiner para o conteúdo do cabeçalho */
+.header-content {
+    text-align: center; /* Centraliza o texto */
+    padding: 20px 0; /* Adiciona preenchimento de 20px no topo e na base */
+}
+
+/* Contêiner para o SVG das ondas */
+.header-waves {
+    position: absolute; /* Posiciona o contêiner de forma absoluta */
+    bottom: 0; /* Alinha o contêiner na parte inferior */
+    width: 100%; /* Largura total do contêiner */
+    height: 100px; /* Altura do contêiner */
+    z-index: -1; /* Coloca o contêiner atrás de outros elementos */
+}
+
+/* Estilização das ondas */
+.waves {
+    width: 100%; /* Largura total das ondas */
+    height: 100px; /* Altura das ondas */
+}
+
+.parallax > use {
+    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+    width: 200%; /* Ajusta a largura para cobrir toda a barra */
+    height: 100px; /* Ajusta a altura */
+}
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-50%, 0, 0); /* Início da animação: move para a esquerda */
+    }
+    100% {
+        transform: translate3d(50%, 0, 0); /* Fim da animação: move para a direita */
+    }
+}
+/* Ajustes para dispositivos menores */
+@media (max-width: 768px) {
+    .menu-container {
+        flex-direction: column; /* Coloca os itens do menu em coluna */
+        align-items: flex-start; /* Alinha os itens à esquerda */
+    }
+
+    .container {
+        flex-direction: column; /* Coloca as colunas em coluna */
+    }
+
+    .coluna {
+        margin-bottom: 20px; /* Adiciona margem inferior entre as colunas */
+    }
+
+    .waves {
+        height: 40px; /* Altura das ondas */
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px 0; /* Reduz o preenchimento do cabeçalho */
+    }
+
+    .menu-container {
+        flex-direction: column; /* Coloca os itens do menu em coluna */
+    }
+
+    .btn-login, .btn-signup {
+        padding: 6px 12px; /* Reduz o tamanho dos botões */
+        font-size: 12px; /* Reduz o tamanho da fonte dos botões */
+    }
+
+    .coluna {
+        padding: 5px; /* Reduz o preenchimento das colunas */
+        margin: 5px; /* Reduz a margem das colunas */
+    }
+}
+
+/* Menu de navegação */
+.menu-container {
+    display: flex; /* Exibe os itens do menu lado a lado */
+    justify-content: space-between; /* Espaça os itens ao máximo */
+    align-items: center; /* Alinha os itens verticalmente no centro */
+    padding: 0 20px; /* Adiciona preenchimento lateral */
+}
+
+header nav ul {
+    list-style: none; /* Remove os marcadores da lista */
+    padding: 0; /* Remove o preenchimento padrão */
+    margin: 0; /* Remove a margem padrão */
+    display: flex; /* Exibe os itens da lista em linha */
+}
+
+header nav ul li {
+    margin: 0 10px; /* Adiciona margem entre os itens do menu */
+}
+
+header nav ul li a {
+    color: black; /* Define a cor do texto dos links como branco */
+    text-decoration: none; /* Remove o sublinhado dos links */
+}
+
+header nav ul li a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Estilização do botão de chat */
+.chat-button {
+    position: fixed; /* Fixa a bolinha na tela */
+    bottom: 20px; /* Distância da bolinha até a parte inferior */
+    right: 20px; /* Distância da bolinha até a parte direita */
+    width: 60px; /* Largura da bolinha */
+    height: 60px; /* Altura da bolinha */
+    border-radius: 50%; /* Define a forma da bolinha como um círculo */
+    background-color: #007bff; /* Cor de fundo da bolinha */
+    color: white; /* Cor do texto dentro da bolinha */
+    text-align: center; /* Centraliza o texto horizontalmente */
+    line-height: 60px; /* Centraliza o texto verticalmente */
+    cursor: pointer; /* Muda o cursor para uma mãozinha ao passar por cima da bolinha */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra à bolinha */
+    z-index: 1000; /* Garante que a bolinha fique acima de outros elementos */
+}
+
+.chat-button img {
+    width: 30px; /* Largura da imagem dentro da bolinha */
+    height: 30px; /* Altura da imagem dentro da bolinha */
+    margin-top: 15px; /* Ajusta a posição da imagem dentro da bolinha */
+}
+
+/* Estilos para a janela de chat */
+.chat-window {
+    display: none; /* Esconde a janela de chat por padrão */
+    position: fixed; /* Fixa a janela na tela */
+    bottom: 20px; /* Distância da janela até a parte inferior */
+    right: 20px; /* Distância da janela até a parte direita */
+    width: 300px; /* Largura da janela */
+    border: 1px solid #ccc; /* Borda cinza clara */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    background-color: #fff; /* Fundo branco */
+    z-index: 1000; /* Garante que a janela fique acima de outros elementos */
+}
+
+.chat-header {
+    background-color: #007bff; /* Fundo azul */
+    color: #fff; /* Texto branco */
+    padding: 10px; /* Preenchimento interno */
+    border-top-left-radius: 10px; /* Bordas arredondadas no canto superior esquerdo */
+    border-top-right-radius: 10px; /* Bordas arredondadas no canto superior direito */
+    display: flex; /* Exibe os itens em linha */
+    justify-content: space-between; /* Espaça os itens ao máximo */
+    align-items: center; /* Alinha os itens verticalmente no centro */
+}
+
+.chat-body {
+    padding: 10px; /* Preenchimento interno */
+    max-height: 200px; /* Altura máxima da área de conteúdo */
+    overflow-y: auto; /* Habilita rolagem vertical se necessário */
+}
+
+.chat-footer {
+    padding: 10px; /* Preenchimento interno */
+    display: flex; /* Exibe os itens em linha */
+    align-items: center; /* Alinha os itens verticalmente no centro */
+}
+
+.chat-footer input {
+    flex: 1; /* Faz o input crescer para ocupar o espaço disponível */
+    padding: 5px; /* Preenchimento interno */
+    margin-right: 10px; /* Margem direita */
+    border: 1px solid #ccc; /* Borda cinza clara */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+.chat-footer button {
+    padding: 5px 10px; /* Preenchimento interno */
+    background-color: #007bff; /* Fundo azul */
+    color: #fff; /* Texto branco */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Mostra o cursor de link ao passar o mouse */
+}
+
+.close-chat {
+    background: none; /* Sem fundo */
+    border: none; /* Sem borda */
+    color: #fff; /* Texto branco */
+    font-size: 20px; /* Tamanho da fonte */
+    cursor: pointer; /* Mostra o cursor de link ao passar o mouse */
+}
+
+/* Estilização do conteúdo principal */
+main {
+    flex: 1; /* Faz o main crescer para ocupar o espaço disponível */
+    padding-top: 160px; /* Ajusta o preenchimento para compensar o cabeçalho fixo */
+    padding: 20px; /* Adiciona preenchimento ao redor do conteúdo */
+    margin-top: 0; /* Ajusta a margem superior para remover a linha */
+}
+
+/* Container para as colunas */
+.container {
+    display: flex; /* Exibe as colunas lado a lado */
+    justify-content: space-around; /* Espaça as colunas uniformemente */
+    align-items: stretch; /* Faz as colunas esticarem até a altura máxima */
+    gap: 20px; /* Adiciona espaçamento entre as colunas */
+}
+
+/* Estilização das colunas */
+.coluna {
+    flex: 1; /* Faz cada coluna ocupar o mesmo espaço */
+    border: 1px solid #ddd; /* Adiciona borda cinza clara */
+    padding: 20px; /* Adiciona preenchimento interno nas colunas */
+    box-sizing: border-box; /* Inclui bordas e preenchimento no tamanho total */
+    margin: 20px; /* Adiciona margem ao redor das colunas */
+    border-radius: 10px; /* Bordas arredondadas */
+    background-color: #fff; /* Fundo branco */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona sombra */
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Estilização das seções */
+section {
+    margin: 20px 0; /* Adiciona margem entre as seções */
+    padding: 20px; /* Adiciona preenchimento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona sombra */
+    background-color: #fff; /* Fundo branco */
+    text-align: center; /* Centraliza o texto */
+}
+
+section h2 {
+    font-size: 1.5rem; /* Tamanho da fonte do título */
+    color: #007bff; /* Cor do título */
+    margin-bottom: 10px; /* Margem inferior do título */
+}
+
+section p {
+    font-size: 1rem; /* Tamanho da fonte do parágrafo */
+    color: #6c757d; /* Cor do texto */
+}
+
+/* Estilização dos ícones */
+section .icon {
+    font-size: 2rem; /* Tamanho do ícone */
+    color: #007bff; /* Cor do ícone */
+    margin-bottom: 10px; /* Margem inferior do ícone */
+}
+
+/* Botões de Login e Cadastro */
+.menu-actions {
+    display: flex; /* Exibe os botões lado a lado */
+    gap: 10px; /* Adiciona espaçamento entre os botões */
+}
+
+.btn-login, .btn-signup {
+    padding: 8px 16px; /* Define o tamanho dos botões */
+    font-size: 14px; /* Define o tamanho da fonte */
+    font-weight: bold; /* Deixa a fonte em negrito */
+    border: none; /* Remove as bordas dos botões */
+    border-radius: 4px; /* Arredonda as bordas dos botões */
+    cursor: pointer; /* Mostra o cursor de ponteiro ao passar o mouse */
+}
+
+.btn-login {
+    background: white; /* Fundo branco para o botão de login */
+    color: #007bff; /* Texto azul */
+    border: 1px solid #007bff; /* Borda azul */
+}
+
+.btn-login:hover {
+    background: #e0e0e0; /* Fundo cinza claro ao passar o mouse */
+}
+
+.btn-signup {
+    background: #ffc107; /* Fundo amarelo para o botão de cadastro */
+    color: #343a40; /* Texto escuro */
+}
+
+.btn-signup:hover {
+    background: #e0a800; /* Fundo amarelo escuro ao passar o mouse */
+}
+
+/* Estilização da seção de planos de armazenamento */
+#planos {
+    background-color: #f1f1f1; /* Cor de fundo da seção */
+    padding: 50px 20px; /* Preenchimento interno */
+    text-align: center; /* Centraliza o texto */
+    display: flex; /* Exibe os cartões lado a lado */
+    flex-direction: column; /* Organiza os itens verticalmente */
+    align-items: center; /* Centraliza os itens horizontalmente */
+}
+
+/* Estilização do título da seção */
+#planos h2 {
+    margin-bottom: 30px; /* Margem inferior */
+    font-size: 2rem; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+}
+
+/* Estilização do contêiner dos cartões de plano */
+.planos-container {
+    display: flex; /* Exibe os cartões lado a lado */
+    justify-content: space-around; /* Espaça os cartões uniformemente */
+    flex-wrap: wrap; /* Permite que os cartões quebrem linha se necessário */
+    width: 100%; /* Largura total da seção */
+}
+
+/* Estilização dos cartões de plano */
+.cartao-plano {
+    background: white; /* Fundo branco */
+    border: 1px solid #ddd; /* Borda cinza clara */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    padding: 20px; /* Preenchimento interno */
+    margin: 20px auto; /* Margem externa e centralização */
+    max-width: 300px; /* Largura máxima dos cartões */
+    transition: transform 0.3s ease; /* Animação suave */
+}
+
+/* Efeito ao passar o mouse sobre os cartões */
+.cartao-plano:hover {
+    transform: translateY(-10px); /* Eleva o cartão ao passar o mouse */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Aumenta a sombra ao passar o mouse */
+}
+
+/* Estilização do título dos planos */
+.cartao-plano h3 {
+    margin: 20px 0 10px; /* Margem externa */
+    font-size: 1.5rem; /* Tamanho da fonte */
+    color: #007bff; /* Cor do texto */
+}
+
+/* Estilização da descrição dos planos */
+.cartao-plano p {
+    font-size: 1rem; /* Tamanho da fonte */
+    color: #6c757d; /* Cor cinza */
+    font-style: italic; /* Define a fonte como itálico */
+    color: #777; /* Define a cor do texto como cinza */
+    font-weight: bold; /* Define o texto em negrito */
+}
+
+/* Estilização do preço dos planos */
+.cartao-plano .price {
+    font-size: 1.2rem; /* Tamanho da fonte */
+    font-weight: bold; /* Texto em negrito */
+    color: #28a745; /* Cor verde */
+    margin: 10px 0; /* Margem externa */
+}
+
+/* Estilização do botão */
+.cartao-plano button {
+    background-color: #007bff; /* Cor de fundo azul */
+    color: white; /* Cor do texto em branco */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 10px 20px; /* Preenchimento interno */
+    font-size: 1rem; /* Tamanho da fonte */
+    cursor: pointer; /* Mostra o cursor de link ao passar o mouse */
+}
+
+/* Efeito ao passar o mouse sobre o botão */
+.cartao-plano button:hover {
+    background-color: #0056b3; /* Fundo azul escuro ao passar o mouse */
+}
+
+/* Estilização da seção de depoimentos */
+#avaliacoes {
+    background: #e9ecef; /* Define a cor de fundo da seção como cinza claro */
+    padding: 50px 20px; /* Adiciona 50 pixels de preenchimento superior e inferior, e 20 pixels nas laterais */
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Estilização do título da seção de depoimentos */
+#avaliacoes h2 {
+    margin-bottom: 30px; /* Adiciona 30 pixels de margem inferior para separação do conteúdo subsequente */
+}
+
+/* Estilização dos blocos de depoimentos */
+.avaliacao {
+    margin: 0 auto; /* Centraliza o bloco de depoimento */
+    max-width: 600px; /* Define a largura máxima do bloco */
+    font-style: italic; /* Aplica estilo itálico ao texto */
+}
+
+/* Estilização do autor do depoimento */
+.avaliacao-autor {
+    font-weight: bold; /* Define o texto em negrito */
+    margin-top: 15px; /* Adiciona 15 pixels de margem superior */
+}
+
+/* Estilização da marca associada ao depoimento */
+.avaliacao-marca {
+    font-weight: bold; /* Define o texto em negrito */
+    color: #007bff; /* Define a cor do texto como azul */
+}
+
+/* Estilização do rodapé */
+footer {
+    background: #343a40; /* Cor de fundo cinza escuro */
+    color: white; /* Cor do texto em branco */
+    text-align: center; /* Centraliza o texto */
+    padding: 10px 0; /* Preenchimento no topo e na base */
+    width: 100%; /* Garante que o rodapé ocupe toda a largura */
+    position: relative; /* Necessário para posicionar o rodapé */
+    bottom: 0; /* Posiciona o rodapé na parte inferior da página */
+}
+
+/* Estilização das bandeiras */
+.img-flag {
+    width: 20px; /* Largura da imagem da bandeira */
+    height: 15px; /* Altura da imagem da bandeira */
+    margin-right: 10px; /* Margem direita para espaçamento */
+    vertical-align: middle; /* Alinhamento vertical ao meio */
+}
+
+/* Estilos para os cartões de produtos */
+.produtos-container {
+    display: flex; /* Exibe os cartões lado a lado */
+    flex-wrap: wrap; /* Permite que os cartões quebrem linha se necessário */
+    justify-content: space-around; /* Espaça os cartões uniformemente */
+    gap: 20px; /* Adiciona espaçamento entre os cartões */
+    padding: 20px; /* Adiciona preenchimento interno */
+}
+
+/* Estilização dos cartões de produtos */
+.cartao-produto {
+    background-color: #f9f9f9; /* Cor de fundo do cartão */
+    border: 1px solid #ddd; /* Borda cinza clara */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    padding: 20px; /* Preenchimento interno */
+    width: 250px; /* Largura fixa do cartão */
+    text-align: center; /* Centraliza o texto */
+    transition: transform 0.3s; /* Animação suave ao transformar */
+}
+
+.cartao-produto:hover {
+    transform: translateY(-10px); /* Eleva o cartão ao passar o mouse */
+}
+
+.cartao-produto h3 {
+    margin-top: 0; /* Remove a margem superior */
+    color: #333; /* Cor do texto */
+}
+
+.cartao-produto p {
+    color: #666; /* Cor do texto */
+}
+
+.cartao-produto button {
+    background-color: #007bff; /* Cor de fundo azul */
+    color: #fff; /* Cor do texto em branco */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 10px 20px; /* Preenchimento interno */
+    cursor: pointer; /* Mostra o cursor de link ao passar o mouse */
+    transition: background-color 0.3s; /* Animação suave ao mudar a cor de fundo */
+}
+
+.cartao-produto button:hover {
+    background-color: #0056b3; /* Fundo azul escuro ao passar o mouse */
+}
